@@ -1,23 +1,21 @@
-module sub(
+module rca(
     input [7:0]input_1,
     input [7:0]input_2,
+    input cin,
     output [7:0]add_out,
     output cout,
     output add_overflow
     );
 
     wire connect;
-    wire [7:0] input_2_comp;
-    
-    assign input_2_comp = ~input_2;
 
-    Adder4bit instance1(.input_1(input_1[3:0]), .input_2(input_2_comp[3:0]), .cout(connect), .add_out(add_out[3:0]), .cin(1'b1));
-    Adder4bit instance2(.input_1(input_1[7:4]), .input_2(input_2_comp[7:4]), .cout(cout), .add_out(add_out[7:4]), .cin(connect));
+    Adder4bit instance1(.input_1(input_1[3:0]), .input_2(input_2[3:0]), .cout(connect), .add_out(add_out[3:0]), .cin(cin));
+    Adder4bit instance2(.input_1(input_1[7:4]), .input_2(input_2[7:4]), .cout(cout), .add_out(add_out[7:4]), .cin(connect));
 
     assign add_overflow = cout;
 endmodule
 
-module sub4bit(
+module Adder4bit(
     input [3:0]input_1,
     input [3:0]input_2,
     input cin,
@@ -36,7 +34,7 @@ module sub4bit(
 
 endmodule
 
-module sub1bit(
+module Adder1bit(
     input input_1, input_2, cin,
     output add_out, cout
     );
