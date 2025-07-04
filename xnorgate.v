@@ -1,4 +1,4 @@
-module xnorgate(
+module gate_xnor(
     input [7:0]input_1,
     input[7:0]input_2,
     output[7:0]xnor_out

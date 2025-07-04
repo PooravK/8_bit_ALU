@@ -1,4 +1,4 @@
-module orgate(
+module gate_or(
     input [7:0]input_1,
     input [7:0]input_2,
     output [7:0]or_out

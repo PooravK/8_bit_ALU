@@ -1,6 +1,6 @@
-module andgate(
+module gate_and(
     input [7:0]input_1,
-    input [7:0]input_2
+    input [7:0]input_2,
     output [7:0]and_out
     );
 
